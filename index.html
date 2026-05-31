@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <!-- ==========================================================================
+       SEO Meta Tags & Optimizations
+       ========================================================================== -->
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="robots" content="index, follow"/>
+  <meta name="description" content="Moklet Society Agency - Platform rekrutmen atlet #1 di Indonesia. Hubungkan klub olahraga Anda dengan talenta-talenta terbaik di cabang Sepak Bola, Basket, Bulu Tangkis, Renang, E-Sports, dan Atletik secara profesional."/>
+  <meta name="keywords" content="Moklet Society Agency, Rekrutmen Atlet, Atlet Indonesia, Sepak Bola, Basket, Bulu Tangkis, E-Sports, Kontrak Atlet"/>
+  <meta name="author" content="Moklet Society Agency"/>
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website"/>
+  <meta property="og:title" content="Moklet Society Agency — Platform Rekrutmen Atlet #1 Indonesia"/>
+  <meta property="og:description" content="Hubungkan klub olahraga Anda dengan talenta-talenta terbaik di cabang Sepak Bola, Basket, Bulu Tangkis, Renang, E-Sports, dan Atletik secara profesional."/>
+  <meta property="og:image" content="https://images.unsplash.com/photo-1543351611-58f69d7c1781?w=1200&h=630&fit=crop"/>
+  <meta property="og:url" content="https://mokletsocietyagency.com"/>
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image"/>
+  <meta property="twitter:title" content="Moklet Society Agency — Platform Rekrutmen Atlet #1 Indonesia"/>
+  <meta property="twitter:description" content="Hubungkan klub olahraga Anda dengan talenta-talenta terbaik secara profesional."/>
+  <meta property="twitter:image" content="https://images.unsplash.com/photo-1543351611-58f69d7c1781?w=1200&h=630&fit=crop"/>
+
+  <title>MOKLET SOCIETY AGENCY &mdash; Platform Rekrutmen Atlet Terbaik Indonesia</title>
+
+  <!-- ==========================================================================
+       External Styles & Typography
+       ========================================================================== -->
+  <!-- Tailwind CSS Engine for Utility Modifiers (Optional/Supporting) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Premium Typography: Outfit & Bebas Neue -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+  
+  <!-- Custom Premium Vanilla CSS Stylesheet -->
+  <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+
+  <!-- ==========================================================================
+       Navigation Component
+       ========================================================================== -->
+  <nav>
+    <div class="nav-inner">
+      <span class="logo">&#9889; MOKLET SOCIETY AGENCY</span>
+      <div class="nav-right">
+        <button class="nav-btn gbtn" onclick="openAddModal()">&#10133; Tambah Atlet</button>
+        <button class="nav-btn" onclick="openCart()">
+          &#128210; List Atlet
+          <span class="cbadge" id="cart-count">0</span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ==========================================================================
+       Hero Banner Section
+       ========================================================================== -->
+  <section class="hero">
+    <!-- Glow Orbs Decoration -->
+    <div class="orb" style="width:480px;height:480px;background:var(--blue);top:-140px;right:-100px;"></div>
+    <div class="orb" style="width:380px;height:380px;background:var(--green);bottom:-100px;left:-80px;"></div>
+    
+    <div class="hero-content">
+      <div class="eyebrow fade-up">&#9889; Platform Rekrutmen Atlet #1 Indonesia</div>
+      <h1 class="hero-title fade-up d1">
+        <span style="color:var(--blue)">REKRUT</span><br/>
+        <span style="color:var(--green)">ATLET</span><br/>
+        TERBAIK
+      </h1>
+      <p class="hero-sub fade-up d2">Pilih cabang olahraga dulu, lalu rekrut atlet terbaik untuk tim Anda!</p>
+      <a href="#cabang" class="btn-grad fade-up d3">Pilih Cabang Olahraga &#8594;</a>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       Platform Statistics Section
+       ========================================================================== -->
+  <div class="stats">
+    <div class="stat">
+      <div class="stat-num" id="total-atlet-stat">12</div>
+      <div class="stat-label">Atlet Terdaftar</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">6</div>
+      <div class="stat-label">Cabang Olahraga</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">120+</div>
+      <div class="stat-label">Kontrak Berhasil</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">4.9&#9733;</div>
+      <div class="stat-label">Rating Platform</div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       Sports (Cabang Olahraga) Grid View
+       ========================================================================== -->
+  <div id="view-sports">
+    <section id="cabang" class="section">
+      <h2 class="section-title cabang-title">
+        Pilih <span class="text-blue">Cabang</span> Olahraga
+      </h2>
+      <p class="section-sub cabang-sub">Klik salah satu untuk melihat daftar atletnya</p>
+      <div class="sports-grid" id="sports-grid"></div>
+    </section>
+  </div>
+
+  <!-- ==========================================================================
+       Athletes (Detail Atlet) Grid View
+       ========================================================================== -->
+  <div id="view-athletes" class="d-none">
+    <section class="section">
+      <button class="back-btn" onclick="backToSports()">&#8592; Kembali ke Cabang Olahraga</button>
+      <div class="atlet-head-wrap">
+        <div>
+          <h2 class="section-title" id="sport-view-title">Atlet</h2>
+          <p class="section-sub atlet-sub" id="sport-view-sub">Pilih atlet untuk direkrut</p>
+        </div>
+        <button class="nav-btn gbtn btn-add-atlet" onclick="openAddModal()">&#10133; Tambah Atlet Baru</button>
+      </div>
+      <div class="athletes-grid" id="athletes-grid"></div>
+    </section>
+  </div>
+
+  <!-- ==========================================================================
+       Recruitment & Order Checkout Section
+       ========================================================================== -->
+  <section id="checkout-section" class="section">
+    <div class="checkout-wrap">
+      <h2 class="form-title">Form <span class="text-blue">Rekrutmen</span></h2>
+      <p class="form-sub">Lengkapi data di bawah untuk memproses kontrak rekrutmen atlet</p>
+      
+      <!-- Order Summary Card -->
+      <div class="order-box">
+        <div class="ob-label">&#128203; Ringkasan Pesanan</div>
+        <div id="order-rows"></div>
+        <div class="ob-total">
+          <span class="ob-total-label">Total Biaya</span>
+          <span class="ob-total-val" id="order-total-val">Rp 0</span>
+        </div>
+      </div>
+      
+      <!-- Checkout Form Fields -->
+      <div class="form-grid">
+        <div class="cg">
+          <label for="f-nama">Nama Lengkap *</label>
+          <input id="f-nama" type="text" placeholder="John Doe"/>
+        </div>
+        <div class="cg">
+          <label for="f-wa">No. WhatsApp *</label>
+          <input id="f-wa" type="tel" placeholder="08xxxxxxxxxx"/>
+        </div>
+        <div class="cg">
+          <label for="f-email">Email *</label>
+          <input id="f-email" type="email" placeholder="email@domain.com"/>
+        </div>
+        <div class="cg">
+          <label for="f-klub">Nama Klub / Tim *</label>
+          <input id="f-klub" type="text" placeholder="FC Jakarta United"/>
+        </div>
+        <div class="cg">
+          <label for="f-kota">Kota</label>
+          <input id="f-kota" type="text" placeholder="Jakarta"/>
+        </div>
+        <div class="cg">
+          <label for="f-durasi">Durasi Kontrak</label>
+          <select id="f-durasi">
+            <option>1 Bulan</option>
+            <option>3 Bulan</option>
+            <option>6 Bulan</option>
+            <option selected>1 Tahun</option>
+            <option>2 Tahun</option>
+          </select>
+        </div>
+        
+        <div class="cg full">
+          <label>Metode Pembayaran</label>
+          <div class="pay-grid">
+            <label class="pay-card active" onclick="selectPay(this, 'Transfer Bank')">
+              <input type="radio" name="pay" value="Transfer Bank" checked/>
+              <div class="pay-icon">&#127970;</div>
+              <div class="pay-name">Transfer Bank</div>
+            </label>
+            <label class="pay-card" onclick="selectPay(this, 'Cash / DP')">
+              <input type="radio" name="pay" value="Cash / DP"/>
+              <div class="pay-icon">&#128181;</div>
+              <div class="pay-name">Cash / DP</div>
+            </label>
+            <label class="pay-card" onclick="selectPay(this, 'Cicilan')">
+              <input type="radio" name="pay" value="Cicilan"/>
+              <div class="pay-icon">&#128179;</div>
+              <div class="pay-name">Cicilan</div>
+            </label>
+          </div>
+        </div>
+        
+        <div class="cg full">
+          <label for="f-catatan">Catatan Tambahan</label>
+          <textarea id="f-catatan" rows="3" placeholder="Kebutuhan khusus, jadwal latihan, dll..."></textarea>
+        </div>
+      </div>
+      
+      <button class="submit-btn" id="submit-btn" onclick="submitOrder()">
+        <span id="btn-text">&#128640; Kirim Kontrak Rekrutmen</span>
+      </button>
+      <p class="form-secure-text">
+        Data Anda aman dan hanya digunakan untuk keperluan rekrutmen resmi.
+      </p>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       Add New Athlete Modal Dialog
+       ========================================================================== -->
+  <div class="modal-bg" id="add-modal">
+    <div class="modal-box">
+      <div class="modal-title">&#10133; Tambah Atlet Baru</div>
+      <p class="modal-sub">Isi data atlet baru &mdash; langsung muncul di daftar dan tersimpan ke spreadsheet.</p>
+      
+      <div class="fgrid2">
+        <div class="fg fg-full">
+          <label for="a-nama">Nama Atlet *</label>
+          <input id="a-nama" type="text" placeholder="Nama lengkap atlet"/>
+        </div>
+        <div class="fg">
+          <label for="a-sport">Cabang Olahraga *</label>
+          <select id="a-sport">
+            <option value="sepak bola">Sepak Bola</option>
+            <option value="basket">Basket</option>
+            <option value="badminton">Badminton</option>
+            <option value="renang">Renang</option>
+            <option value="esports">E-Sports</option>
+            <option value="atletik">Atletik</option>
+          </select>
+        </div>
+        <div class="fg">
+          <label for="a-pos">Posisi / Spesialisasi *</label>
+          <input id="a-pos" type="text" placeholder="cth: Striker, Point Guard"/>
+        </div>
+        <div class="fg">
+          <label for="a-age">Usia</label>
+          <input id="a-age" type="number" placeholder="22" min="15" max="50"/>
+        </div>
+        <div class="fg">
+          <label for="a-rating">Rating (1-10)</label>
+          <input id="a-rating" type="number" placeholder="8.5" min="1" max="10" step="0.1"/>
+        </div>
+        <div class="fg">
+          <label for="a-goals">Poin / Kill / Gol</label>
+          <input id="a-goals" type="number" placeholder="0" min="0"/>
+        </div>
+        <div class="fg">
+          <label for="a-assists">Assist</label>
+          <input id="a-assists" type="number" placeholder="0" min="0"/>
+        </div>
+        
+        <!-- Photo drag-n-drop area -->
+        <div class="fg fg-full">
+          <label>Foto Atlet</label>
+          <div class="photo-upload" id="photo-upload-area">
+            <input type="file" id="a-foto" accept="image/*" onchange="previewPhoto(this)"/>
+            <img id="photo-preview-img" class="photo-preview" alt="Preview foto atlet"/>
+            <div class="photo-placeholder" id="photo-placeholder">
+              <span class="pico">📸</span>
+              <p>Klik atau drag foto atlet di sini<br/><small class="photo-hint">JPG, PNG &mdash; maks 5MB</small></p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="fg fg-full">
+          <label for="a-price">Biaya Kontrak (Rp) *</label>
+          <input id="a-price" type="number" placeholder="30000000" min="0"/>
+        </div>
+      </div>
+      
+      <div class="modal-actions">
+        <button class="btn-cancel" onclick="closeAddModal()">Batal</button>
+        <button class="btn-save" id="save-btn" onclick="saveAthlete()">
+          <span id="save-btn-text">&#128190; Simpan Atlet</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       Recruitment Shopping List Drawer
+       ========================================================================== -->
+  <div id="cart-overlay" onclick="closeCart()"></div>
+  <div id="cart-drawer">
+    <div class="drawer-head">
+      <span class="drawer-title">&#128210; List Atlet</span>
+      <button class="close-btn" onclick="closeCart()">&#215;</button>
+    </div>
+    <div class="drawer-items" id="drawer-items">
+      <div class="drawer-empty">List atlet masih kosong</div>
+    </div>
+    <div class="drawer-foot">
+      <div class="drawer-total">
+        <span class="dt-label">Total</span>
+        <span class="dt-val" id="drawer-total">Rp 0</span>
+      </div>
+      <button class="checkout-btn" onclick="goCheckout()">Lanjut ke Checkout &#8594;</button>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       Recruitment Verification / Success Modal
+       ========================================================================== -->
+  <div id="success-modal">
+    <div class="s-box">
+      <div class="s-icon">&#127942;</div>
+      <div class="s-title">Kontrak Terkirim!</div>
+      <p class="s-sub">Terima kasih, <strong id="s-nama"></strong>! Permintaan rekrutmen Anda telah sukses terkirim.</p>
+      <div class="s-detail" id="s-detail"></div>
+      <button class="s-reset" onclick="resetAll()">Rekrut Atlet Lainnya</button>
+    </div>
+  </div>
+
+  <!-- Toast Notification Overlay -->
+  <div id="toast">
+    <div class="tdot" id="tdot"></div>
+    <span id="tmsg"></span>
+  </div>
+
+  <!-- ==========================================================================
+       Footer Section
+       ========================================================================== -->
+  <footer>
+    <div class="footer-logo">&#9889; MOKLET SOCIETY AGENCY</div>
+    <p class="footer-copy">&copy; 2026 MOKLET SOCIETY AGENCY &middot; Platform Rekrutmen Atlet Profesional Indonesia</p>
+  </footer>
+
+  <!-- ==========================================================================
+       External Modular Logic Scripts (Order Matters: Data -> App)
+       ========================================================================== -->
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
