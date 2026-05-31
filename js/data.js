@@ -39,7 +39,7 @@ let athletes = [
     goals: 900,
     assists: 250,
     price: 150000000,
-    photo: "assets/images/CR7.jpeg"
+    photo: "/assets/images/CR7.jpeg"
   },
   {
     id: 2,
@@ -52,7 +52,7 @@ let athletes = [
     goals: 850,
     assists: 380,
     price: 145000000,
-    photo: "assets/images/Messi.jpeg"
+    photo: "/assets/images/Messi.jpeg"
   },
   {
     id: 13,
@@ -65,7 +65,7 @@ let athletes = [
     goals: 250,
     assists: 60,
     price: 120000000,
-    photo: "assets/images/haland.jpeg"
+    photo: "/assets/images/haland.jpeg"
   },
   {
     id: 14,
@@ -78,7 +78,7 @@ let athletes = [
     goals: 310,
     assists: 150,
     price: 130000000,
-    photo: "assets/images/mbape.jpeg"
+    photo: "/assets/images/mbape.jpeg"
   },
   {
     id: 15,
@@ -91,7 +91,7 @@ let athletes = [
     goals: 15,
     assists: 45,
     price: 45000000,
-    photo: "assets/images/arhan.jpeg"
+    photo: "/assets/images/arhan.jpeg"
   },
   {
     id: 3,
@@ -104,7 +104,7 @@ let athletes = [
     goals: 40,
     assists: 0,
     price: 50000000,
-    photo: "assets/images/ginting_badminton.jpeg"
+    photo: "/assets/images/ginting_badminton.jpeg"
   },
   {
     id: 4,
@@ -117,7 +117,7 @@ let athletes = [
     goals: 38,
     assists: 0,
     price: 48000000,
-    photo: "assets/images/jonathan_badminton.jpeg"
+    photo: "/assets/images/jonathan_badminton.jpeg"
   },
   {
     id: 19,
@@ -130,7 +130,7 @@ let athletes = [
     goals: 50,
     assists: 0,
     price: 60000000,
-    photo: "assets/images/seyoung_badminton.jpeg"
+    photo: "/assets/images/seyoung_badminton.jpeg"
   },
   {
     id: 20,
@@ -143,7 +143,7 @@ let athletes = [
     goals: 48,
     assists: 0,
     price: 58000000,
-    photo: "assets/images/tzuying_badminton.jpeg"
+    photo: "/assets/images/tzuying_badminton.jpeg"
   },
   {
     id: 21,
@@ -169,7 +169,7 @@ let athletes = [
     goals: 30,
     assists: 45,
     price: 150000000,
-    photo: "assets/images/curry_basket.jpeg"
+    photo: "/assets/images/curry_basket.jpeg"
   },
   {
     id: 6,
@@ -182,7 +182,7 @@ let athletes = [
     goals: 28,
     assists: 60,
     price: 160000000,
-    photo: "assets/images/James_basket.jpeg"
+    photo: "/assets/images/James_basket.jpeg"
   },
   {
     id: 16,
@@ -195,7 +195,7 @@ let athletes = [
     goals: 32,
     assists: 30,
     price: 140000000,
-    photo: "assets/images/kevin_basket.jpeg"
+    photo: "/assets/images/kevin_basket.jpeg"
   },
   {
     id: 17,
@@ -208,7 +208,7 @@ let athletes = [
     goals: 25,
     assists: 70,
     price: 155000000,
-    photo: "assets/images/nikola_basket.jpeg"
+    photo: "/assets/images/nikola_basket.jpeg"
   },
   {
     id: 18,
@@ -221,7 +221,7 @@ let athletes = [
     goals: 18,
     assists: 20,
     price: 40000000,
-    photo: "assets/images/marques_basket.jpeg"
+    photo: "/assets/images/marques_basket.jpeg"
   },
   {
     id: 7,
@@ -234,7 +234,7 @@ let athletes = [
     goals: 20,
     assists: 0,
     price: 45000000,
-    photo: "assets/images/adam_renang.jpeg"
+    photo: "/assets/images/adam_renang.jpeg"
   },
   {
     id: 8,
@@ -247,7 +247,7 @@ let athletes = [
     goals: 25,
     assists: 0,
     price: 55000000,
-    photo: "assets/images/caleb_renang.jpeg"
+    photo: "/assets/images/caleb_renang.jpeg"
   },
   {
     id: 22,
@@ -260,7 +260,7 @@ let athletes = [
     goals: 30,
     assists: 0,
     price: 60000000,
-    photo: "assets/images/ketie_renang.jpeg"
+    photo: "/assets/images/ketie_renang.jpeg"
   },
   {
     id: 23,
@@ -273,7 +273,7 @@ let athletes = [
     goals: 50,
     assists: 0,
     price: 150000000,
-    photo: "assets/images/michele_renang.jpeg"
+    photo: "/assets/images/michele_renang.jpeg"
   },
   {
     id: 9,
@@ -286,7 +286,7 @@ let athletes = [
     goals: 120,
     assists: 200,
     price: 150000000,
-    photo: "assets/images/faker_game.jpeg"
+    photo: "/assets/images/faker_game.jpeg"
   },
   {
     id: 10,
@@ -299,7 +299,7 @@ let athletes = [
     goals: 150,
     assists: 90,
     price: 80000000,
-    photo: "assets/images/kairi_game.jpeg"
+    photo: "/assets/images/kairi_game.jpeg"
   },
   {
     id: 24,
@@ -312,7 +312,7 @@ let athletes = [
     goals: 110,
     assists: 70,
     price: 50000000,
-    photo: "assets/images/kelra_game.jpeg"
+    photo: "/assets/images/kelra_game.jpeg"
   },
   {
     id: 25,
@@ -325,7 +325,7 @@ let athletes = [
     goals: 30,
     assists: 300,
     price: 65000000,
-    photo: "assets/images/kiboy_game.jpeg"
+    photo: "/assets/images/kiboy_game.jpeg"
   },
   {
     id: 26,
@@ -338,7 +338,7 @@ let athletes = [
     goals: 95,
     assists: 210,
     price: 70000000,
-    photo: "assets/images/sanz_game.jpeg"
+    photo: "/assets/images/sanz_game.jpeg"
   },
   {
     id: 27,
@@ -351,7 +351,7 @@ let athletes = [
     goals: 105,
     assists: 85,
     price: 60000000,
-    photo: "assets/images/savero_game.jpeg"
+    photo: "/assets/images/savero_game.jpeg"
   },
   {
     id: 11,
@@ -364,7 +364,7 @@ let athletes = [
     goals: 62,
     assists: 0,
     price: 80000000,
-    photo: "assets/images/armand_atletik.jpeg"
+    photo: "/assets/images/armand_atletik.jpeg"
   },
   {
     id: 12,
@@ -377,7 +377,7 @@ let athletes = [
     goals: 95,
     assists: 0,
     price: 150000000,
-    photo: "assets/images/bolt_atletik.jpeg"
+    photo: "/assets/images/bolt_atletik.jpeg"
   },
   {
     id: 28,
@@ -390,7 +390,7 @@ let athletes = [
     goals: 25,
     assists: 0,
     price: 55000000,
-    photo: "assets/images/cari_atletik.jpeg"
+    photo: "/assets/images/cari_atletik.jpeg"
   },
   {
     id: 29,
@@ -403,7 +403,7 @@ let athletes = [
     goals: 40,
     assists: 0,
     price: 90000000,
-    photo: "assets/images/Eliud_atletik.jpeg"
+    photo: "/assets/images/Eliud_atletik.jpeg"
   },
   {
     id: 30,
@@ -416,6 +416,6 @@ let athletes = [
     goals: 15,
     assists: 0,
     price: 35000000,
-    photo: "assets/images/lalu_atletik.jpeg"
+    photo: "/assets/images/lalu_atletik.jpeg"
   }
 ];
