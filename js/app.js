@@ -1,11 +1,11 @@
 /**
  * @fileoverview Main Application Controller
  * @description Controls the application behavior, state management, DOM rendering, Cart operations,
- *              modal interactions, image processing, and Spreadsheet integration.
+ * modal interactions, image processing, and Spreadsheet integration.
  * @module js/app
  */
 
-// a
+// ==========================================================================
 // 1. Global Application State
 // ==========================================================================
 
@@ -26,12 +26,6 @@ let currentSport = null;
  * @type {string}
  */
 let selectedPayment = "Transfer Bank";
-
-/**
- * Auto-increment counter for newly added athlete IDs.
- * @type {number}
- */
-let nextId = 13;
 
 /**
  * Holds base64 photo data URL when creating/uploading a new athlete photo.
@@ -445,9 +439,9 @@ async function saveAthlete() {
       }
     }
   } else {
-    // Push directly to active local memory array
+    // FIX: Gunakan Date.now() agar menghasilkan ID unik berbasis waktu milidetik saat ini (anti-tabrakan!)
     athletes.push({
-      id: nextId++,
+      id: Date.now(),
       name: nama,
       emoji: sportMeta[sport].emoji,
       sport: sport,
@@ -547,6 +541,7 @@ function editAthlete(e, id) {
   const modal = document.getElementById("add-modal");
   if (modal) modal.classList.add("show");
 }
+
 /**
  * Removes an athlete entirely from the global dataset (both from athletes list and active cart).
  * @param {Event} e - The standard DOM click event propagation controller.
