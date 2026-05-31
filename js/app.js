@@ -37,7 +37,7 @@ let editId = null;
 
 
 // ==========================================================================
-// 2. Utility Functions
+// 2. Utility & LocalStorage Functions (FITUR AUTO SAVE DI SINI)
 // ==========================================================================
 
 /**
@@ -69,6 +69,31 @@ function toast(msg, color) {
       toastEl.classList.remove("show");
     }, 3000);
   }
+}
+
+/**
+ * AMBIL data atlet dari memori browser saat web baru dibuka (Auto Save)
+ */
+function loadLocalAthletes() {
+  const localData = localStorage.getItem("custom_athletes");
+  if (localData) {
+    const customList = JSON.parse(localData);
+    // Masukkan atlet buatan user ke daftar utama jika ID-nya belum ada di data.js
+    customList.forEach(custom => {
+      if (!athletes.some(a => a.id === custom.id)) {
+        athletes.push(custom);
+      }
+    });
+  }
+}
+
+/**
+ * SIMPAN data atlet ke memori browser tiap ada perubahan (Auto Save)
+ */
+function saveLocalAthletes() {
+  // Hanya menyimpan atlet baru buatan user (ID bawaan data.js biasanya di bawah 50)
+  const customList = athletes.filter(a => a.id > 50); 
+  localStorage.setItem("custom_athletes", JSON.stringify(customList));
 }
 
 
@@ -439,7 +464,7 @@ async function saveAthlete() {
       }
     }
   } else {
-    // FIX: Gunakan Date.now() agar menghasilkan ID unik berbasis waktu milidetik saat ini (anti-tabrakan!)
+    // Gunakan Date.now() agar menghasilkan ID unik berbasis waktu milidetik saat ini (anti-tabrakan!)
     athletes.push({
       id: Date.now(),
       name: nama,
@@ -454,6 +479,9 @@ async function saveAthlete() {
       photo: currentPhotoData || null
     });
   }
+  
+  // [MODIFIKASI]: Amankan data terbaru ke memori LocalStorage sebelum dikirim ke Google Sheets
+  saveLocalAthletes();
   
   const saveBtn = document.getElementById("save-btn");
   const saveBtnText = document.getElementById("save-btn-text");
@@ -500,7 +528,7 @@ async function saveAthlete() {
     renderAthletes(sport);
   }
   
-  toast(nama + " berhasil ditambahkan! 🎉", "#9AD872");
+  toast(nama + " berhasil disimpan! 🎉", "#9AD872");
 }
 
 /**
@@ -543,17 +571,35 @@ function editAthlete(e, id) {
 }
 
 /**
- * Removes an athlete entirely from the global dataset (both from athletes list and active cart).
+ * [MODIFIKASI LENGKAP]: Menghapus atlet dari website, mengamankan memori lokal,
+ * dan otomatis mengirim log penghapusan ke tab "Atlet Baru" di Google Sheets.
  * @param {Event} e - The standard DOM click event propagation controller.
  * @param {number} id - Unique athlete ID to delete.
  */
-function deleteAthlete(e, id) {
+async function deleteAthlete(e, id) {
   e.stopPropagation();
   
-  if (!confirm("Hapus atlet ini dari daftar?")) return;
+  const a = athletes.find(x => x.id === id);
+  if (!a) return;
   
-  athletes = athletes.filter(a => a.id !== id);
+  if (!confirm(`Hapus atlet "${a.name}" dari daftar?`)) return;
+  
+  // Cadangkan datanya sebentar untuk kebutuhan riwayat Spreadsheet sebelum dihapus secara lokal
+  const namaHapus = a.name;
+  const sportHapus = a.sport;
+  const posHapus = a.pos;
+  const ageHapus = a.age;
+  const ratingHapus = a.rating;
+  const goalsHapus = a.goals;
+  const assistsHapus = a.assists;
+  const priceHapus = a.price;
+  
+  // Hapus dari memori array web dan keranjang belanja
+  athletes = athletes.filter(x => x.id !== id);
   cart = cart.filter(c => c.id !== id);
+  
+  // Simpan perubahan baru ini ke LocalStorage (Biar di-refresh tetep hilang)
+  saveLocalAthletes();
   
   updateCart();
   renderSports();
@@ -562,7 +608,34 @@ function deleteAthlete(e, id) {
     renderAthletes(currentSport);
   }
   
-  toast("Atlet berhasil dihapus", "#ef4444");
+  toast("Menghapus atlet...", "#ef4444");
+  
+  // Kirim log penghapusan secara asinkron ke Google Sheets
+  try {
+    const dataToSend = {
+      type: "hapus_atlet",
+      nama: namaHapus,
+      sport: sportHapus,
+      pos: posHapus,
+      age: ageHapus,
+      rating: ratingHapus,
+      goals: goalsHapus,
+      assists: assistsHapus,
+      price: priceHapus,
+      timestamp: new Date().toLocaleString("id-ID")
+    };
+    
+    await fetch(APPS_SCRIPT_URL, {
+      method: "POST",
+      mode: "no-cors",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(dataToSend)
+    });
+  } catch (err) {
+    console.error("Gagal sinkronisasi hapus ke Spreadsheet: ", err);
+  }
+  
+  toast(namaHapus + " berhasil dihapus", "#ef4444");
 }
 
 
@@ -742,7 +815,8 @@ function resetAll() {
 // 7. Initializer Bootstrap
 // ==========================================================================
 
-// Starts the app by rendering the sport categories on dynamic document ready
+// [MODIFIKASI]: Menambahkan pembacaan memori lokal sesaat sebelum menu utama di-render
 document.addEventListener("DOMContentLoaded", () => {
+  loadLocalAthletes(); // <-- Menarik tabungan atlet dari browser pengguna agar tidak hilang
   renderSports();
 });
