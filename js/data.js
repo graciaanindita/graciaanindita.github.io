@@ -8,7 +8,7 @@
  * Endpoint URL to integration with Google Sheets (via Google Apps Script)
  * @type {string}
  */
-const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyY4ue8TTQkySou2y6A7Y-bwjdIOiGMurNjSZSNDujoxpHvJu7Z1WOSX6ZDwfE4uwlv5A/exec";
+const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbw-7iqG3VUqSL9BJ4_I6uUmaVhOJ9uhqU_VAzkC0L4Z65aqaYRWhIcq1eMaNLPP_rgoQA/exec";
 
 /**
  * Metadata definition for each Sport category, including representative emoji, label name, and description.
