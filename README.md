@@ -1,14 +1,14 @@
-# <p align="center"><a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=Orbitron&size=36&duration=3000&pause=1000&color=00F2FE&center=true&vCenter=true&width=600&lines=👋+Hi,+I'm+a+Software+Engineer;⚡+Welcome+to+My+Workspace;🚀+Building+Modern+Web+Apps" alt="Typing SVG" /></a></p>
+# <p align="center"><img src="https://capsule-render.vercel.app/api?type=waving&color=EB4C4C&height=200&section=header&text=Welcome%20to%20My%20Portfolio!&fontSize=38&fontColor=333333&animation=twinkling&fontAlignY=40" alt="Header Banner" /></p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Role-Student%20%40%20SMK%20Telkom-red?style=for-the-badge" alt="SMK Telkom Student" />
-  <img src="https://img.shields.io/badge/Focus-Frontend%20%26%20Fullstack-blue?style=for-the-badge" alt="Focus" />
+  <img src="https://img.shields.io/badge/Role-Student%20%40%20SMK%20Telkom-red?style=for-the-badge&logo=google-classroom&logoColor=white" alt="SMK Telkom Student" />
+  <img src="https://img.shields.io/badge/Focus-Mobile%20App%20%26%20Fullstack-007ACC?style=for-the-badge&logo=flutter&logoColor=white" alt="Focus" />
 </p>
 
 ---
 
 ## ⚡ About Me
-I am a passionate Software Engineering student specializing in building responsive, clean-code web applications. I focus on separating logic and presentation layer, creating dynamic user experiences, and exploring modern UI trends like Glassmorphism.
+I am a passionate Software Engineering student specializing in building responsive mobile and fullstack web applications. I focus on clean code architecture, intuitive UI/UX design, dynamic user experiences, and modern software development practices.
 
 ---
 
@@ -46,7 +46,7 @@ These projects represent my milestone assessments during the **UKL (Ujian Kenaik
 ## 🛠️ Tech Stack & Tools
 
 <p align="left">
-  <img src="https://skillicons.dev/icons?i=html,css,js,git,github,vscode,figma" alt="My Skills" />
+  <img src="https://skillicons.dev/icons?i=html,css,js,flutter,dart,git,github,vscode,figma" alt="My Skills" />
 </p>
 
 ---
